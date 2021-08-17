@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 
 
+const initialFormValues = {
+  name: '',
+  email: '',
+  role: '',
+}
+
 const Form = (props) => {
   const { user ,setUser } = props
-  const [newMember, setNewMember] = useState({ name: "", email: "", role: "", })
+  const [newMember, setNewMember] = useState(initialFormValues)
 
   const handleChange= event => {
     setNewMember({...newMember, [event.target.name]: event.target.value })
@@ -12,17 +18,9 @@ const Form = (props) => {
   const handleSubmit = event => {
     event.preventDefault();
     setUser([...user, newMember])
-    resetForm(event)
+    setNewMember(initialFormValues)
   }
 
-  const resetForm = event => {
-    event.preventDefault();
-    setNewMember({
-      name: "",
-      email: "",
-      role: "",
-    })
-  }
 
   return (
     <div className="App">
