@@ -4,10 +4,10 @@ const FormList = (props) => {
     // const { user } = props
 
     return(
-        <div >
+        <div>
         {props.user.map((user, index) => {
             return(
-            <div key={index}>
+            <div key={index} className='friend container'>
                 <h2>{user.name}</h2> 
                 <p>{user.email}</p> 
                 <p>{user.role}</p>
