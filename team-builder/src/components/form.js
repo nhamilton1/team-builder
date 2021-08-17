@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 
 const Form = (props) => {
-
-  const [newMember, setNewMember] = useState({ username: "", email: "", role: "", })
+  const { user ,setUser } = props
+  const [newMember, setNewMember] = useState({ name: "", email: "", role: "", })
 
   const handleChange= event => {
     setNewMember({...newMember, [event.target.name]: event.target.value })
@@ -11,14 +11,14 @@ const Form = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.setUser([...props.user, newMember])
+    setUser([...user, newMember])
     resetForm(event)
   }
 
   const resetForm = event => {
     event.preventDefault();
     setNewMember({
-      username: "",
+      name: "",
       email: "",
       role: "",
     })
@@ -28,11 +28,11 @@ const Form = (props) => {
     <div className="App">
       <form onSubmit={handleSubmit}>
         <label>
-          Username:
+          Name:
           <input
             type="text"
-            name="username"
-            value={newMember.username}
+            name="name"
+            value={newMember.name}
             onChange={handleChange}
           />
         </label>

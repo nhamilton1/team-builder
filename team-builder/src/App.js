@@ -4,7 +4,7 @@ import Form from './components/Form'
 import FromList from './components/FormList'
 
 function App() {
-  const [user, setUser] = useState([{}, {}])
+  const [user, setUser] = useState([])
 
   return (
     <div className="App">
