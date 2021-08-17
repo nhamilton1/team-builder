@@ -4,11 +4,13 @@ const FormList = (props) => {
     // const { user } = props
 
     return(
-        <div>
+        <div >
         {props.user.map((user, index) => {
             return(
             <div key={index}>
-                <p>{user.name} {user.email} {user.role}</p>
+                <h2>{user.name}</h2> 
+                <p>{user.email}</p> 
+                <p>{user.role}</p>
             </div>
             )
         })}

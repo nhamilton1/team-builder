@@ -7,7 +7,7 @@ function App() {
   const [user, setUser] = useState([])
 
   return (
-    <div className="App">
+    <div className="container">
       <h1>Add Your Team Members</h1>
       <Form user={user} setUser={setUser}/>
       <FromList user={user}/>
