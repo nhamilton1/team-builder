@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import './App.css';
-import Form from './components/form'
+import Form from './components/Form'
 import FromList from './components/FormList'
 
 function App() {
-  const [users, setUsers] = useState([{}, {}])
+  const [user, setUser] = useState([{}, {}])
 
   return (
     <div className="App">
       <h1>Add Your Team Members</h1>
-      <Form users={users} setUsers={setUsers}/>
-      <FromList users={users}/>
+      <Form user={user} setUser={setUser}/>
+      <FromList user={user}/>
     </div>
   );
 }

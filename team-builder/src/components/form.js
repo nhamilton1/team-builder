@@ -2,27 +2,38 @@ import React, { useState } from 'react'
 
 
 const Form = (props) => {
-  const [user, setUser] = useState({ username: "", email: "", role: "" })
+
+  const [newMember, setNewMember] = useState({ username: "", email: "", role: "", })
 
   const handleChange= event => {
-    setUser({...user, [event.target.name]: event.target.value })
+    setNewMember({...newMember, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = event => {
-    event.preventDefualt();
-    setUser({ username: '', email: '', role: '' })
+    event.preventDefault();
+    props.setUser([...props.user, newMember])
+    resetForm(event)
+  }
+
+  const resetForm = event => {
+    event.preventDefault();
+    setNewMember({
+      username: "",
+      email: "",
+      role: "",
+    })
   }
 
   return (
     <div className="App">
-      <form onSubmit={event => handleSubmit(event)}>
+      <form onSubmit={handleSubmit}>
         <label>
           Username:
           <input
             type="text"
             name="username"
-            value={user.username}
-            onChange={event => handleChange(event)}
+            value={newMember.username}
+            onChange={handleChange}
           />
         </label>
         <label>
@@ -30,8 +41,8 @@ const Form = (props) => {
           <input
             type="text"
             name="email"
-            value={user.email}
-            onChange={event => handleChange(event)}
+            value={newMember.email}
+            onChange={handleChange}
           />
         </label>
         <label>
@@ -39,8 +50,8 @@ const Form = (props) => {
           <input
             type="text"
             name="role"
-            value={user.role}
-            onChange={event => handleChange(event)}
+            value={newMember.role}
+            onChange={handleChange}
           />
         </label>
         <button>Submit!</button>
