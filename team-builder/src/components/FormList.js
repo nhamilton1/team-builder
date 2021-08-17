@@ -9,8 +9,8 @@ const FormList = (props) => {
             return(
             <div key={index} className='friend container'>
                 <h2>{user.name}</h2> 
-                <p>{user.email}</p> 
-                <p>{user.role}</p>
+                <p><strong>Email:</strong> {user.email}</p> 
+                <p><strong>Role:</strong>  {user.role}</p>
             </div>
             )
         })}

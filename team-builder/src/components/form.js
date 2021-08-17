@@ -47,15 +47,14 @@ const Form = (props) => {
             onChange={handleChange}
           />
         </label>
-        <label>
-          role:
-          <input
-            type="text"
-            name="role"
-            placeholder="What is your role?"
-            value={newMember.role}
-            onChange={handleChange}
-          />
+        <label>Role:
+          <select value={newMember.role} name="role" onChange={handleChange}>
+            <option value=''>-- Select a Role --</option>
+            <option value='Student'>Student</option>
+            <option value='TL'>Team Lead</option>
+            <option value='Instructor'>Instructor</option>
+            <option value='Alumni'>Alumni</option>
+          </select>
         </label>
         <button>Submit!</button>
         </div>
